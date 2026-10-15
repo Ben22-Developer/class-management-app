@@ -1,0 +1,48 @@
+ClassManagementAppClientz/
+
+ClassManagementAppClient/Application Tests/
+
+ClassManagementAppClient/SQL Stuffs/SQL Scripts/Assessments.sql
+
+ClassManagementAppClient/SQL Stuffs/SQL Scripts/Attendances.sql
+
+ClassManagementAppClient/SQL Stuffs/SQL Scripts/Chat.sql
+
+ClassManagementAppClient/SQL Stuffs/SQL Scripts/Joins.sql
+
+ClassManagementAppClient/SQL Stuffs/SQL Scripts/Statics.sql
+
+ClassManagementAppClient/SQL Stuffs/SQL Scripts/Students.sql
+
+ClassManagementAppClient/target/
+
+ClassManagementAppClient/hs_err_pid2612.log
+
+ClassManagementAppClient/hs_err_pid43776.log
+
+ClassManagementAppServer/docs/
+
+ClassManagementAppServer/sql/altering.sql
+
+ClassManagementAppServer/sql/class_management_server_insert.sql
+
+ClassManagementAppServer/sql/class_management_server_update.sql
+
+ClassManagementAppServer/sql/insert.sql
+
+ClassManagementAppServer/sql/mix.sql
+
+ClassManagementAppServer/target/
+
+ClassManagementAppServer/.env
+
+ClassManagementAppServer/.gitignore
+
+ClassManagementAppServer/.gitattributes
+
+ClassManagementAppServer/Dockerfile
+
+ClassManagementAppServer/hs_err_pid20008.log
+
+ClassManagementAppServer/replay_pid20008.log
+

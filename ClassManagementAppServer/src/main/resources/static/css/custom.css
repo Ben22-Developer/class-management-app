@@ -1,0 +1,247 @@
+
+.statistics-header {
+    text-align: center;
+    font-size: xx-large;
+}
+
+.inner {
+    display: flex;
+    flex-direction: column;
+    gap: 0em;
+}
+
+.chart-button-controllers-container {
+    display: flex;
+    gap: 3em;
+    padding: 0 3em;
+    flex-flow: row-reverse;
+}
+
+.chart-container {
+    scale: .8 !important;
+}
+
+.next-data-set-form {
+    border: 2px solid;
+    width: max-content;
+    margin: auto;
+    padding: 0em 3em;
+}
+
+.form-div {
+
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    gap: 1em;
+    padding: 1em 0em;
+
+    input[type="date"] {
+        border: none;
+        border-bottom: 1px solid;
+    }
+}
+
+.dataset-form-submit-button {
+    height: fit-content !important;
+    padding: .5em 2em !important;
+    margin: auto;
+}
+
+.redish {
+    color:red;
+}
+
+/* CSS */
+.button-84 {
+  align-items: center;
+  background-color: initial;
+  background-image: linear-gradient(#464d55, #25292e);
+  border-radius: 8px;
+  border-width: 0;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, .1),0 3px 6px rgba(0, 0, 0, .05);
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: inline-flex;
+  flex-direction: column;
+  font-family: expo-brand-demi,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+  font-size: 1em;
+  height: 52px;
+  justify-content: center;
+  line-height: 1;
+  margin: 0;
+  outline: none;
+  overflow: hidden;
+  padding: 0 32px;
+  text-align: center;
+  text-decoration: none;
+  transform: translate3d(0, 0, 0);
+  transition: all 150ms;
+  vertical-align: baseline;
+  white-space: nowrap;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.button-84:hover {
+  box-shadow: rgba(0, 1, 0, .2) 0 2px 8px;
+  opacity: .85;
+}
+
+.button-84:active {
+  outline: 0;
+}
+
+.button-84:focus {
+  box-shadow: rgba(0, 0, 0, .5) 0 0 0 3px;
+}
+
+@media (max-width: 420px) {
+  .button-84 {
+    height: 48px;
+  }
+}
+
+.chart-type-container {
+    display: flex;
+    flex-direction: column;
+    gap:.5em;
+    /* margin-top: 3em; */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.my-selector {
+    text-align: center;
+    background-color: #25292e;
+    color: #fff;
+}
+
+.selected-chart-paragraph {
+    color: red;
+    font-weight: bold;
+}
+
+
+.table-container {
+    overflow-x: auto;
+    padding: 0 1em;
+}
+
+.table-zebra {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: sans-serif;
+    font-size: 0.9rem;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.table-zebra caption {
+    caption-side: bottom;
+    text-align: right;
+    font-size: 0.8rem;
+    color: #666;
+    padding: 10px 0;
+}
+
+.table-zebra thead {
+    background-color: #2c3e50; /* A dark blue-grey header */
+    color: #ffffff;
+}
+
+.table-zebra th,
+.table-zebra td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #dddddd;
+}
+
+/* This is the magic for the zebra-striping */
+.table-zebra tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+
+.table-zebra tbody tr:last-of-type {
+    border-bottom: 2px solid #2c3e50;
+}
+
+/* Optional: Add a hover effect for better user interaction */
+.table-zebra tbody tr:hover {
+    background-color: #e2e8f0;
+    cursor: pointer;
+}
+
+.table-data {
+    border-right: .1em solid;
+}
+
+th {
+    text-align: center !important;
+}
+
+.table-search-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 2em;
+    margin-bottom: 2em;
+}
+
+.input-field {
+  position: relative;
+  border-bottom: 2px solid #ccc;
+  margin: 15px 0;
+}
+.input-field label {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  /* color: #fff; */
+  font-size: 16px;
+  pointer-events: none;
+  transition: 0.15s ease;
+}
+.input-field input {
+  /* width: 100%; */
+  /* height: 40px; */
+  background: transparent;
+  border: none;
+  outline: none;
+  font-size: 16px;
+  /* color: #fff; */
+}
+.input-field input:focus~label,
+.input-field input:valid~label {
+  font-size: 0.8rem;
+  top: 10px;
+  transform: translateY(-120%);
+}
+
+.search {
+    padding: 0 .5em;
+}
+
+.a-form{
+    background: #f2f2f2;
+    max-width: 500px;
+    padding: 40px;
+    margin: 50px auto;
+    border: 4px solid #003399;
+    border-radius: 5px;
+    box-shadow: 1px 1px 10px 1px;
+
+    input[type="submit"] {
+		background-color: #002b80;
+		display: inline-block;
+		cursor: pointer;
+		color: #ffffff;
+		padding: 8px 18px;
+		}
+}
+
+.bluish {
+    color: #003399;
+}

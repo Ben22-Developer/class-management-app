@@ -1,0 +1,133 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title th:text="#{app.title}"></title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" th:href="@{/css/global.css}" />
+    <link rel="stylesheet" th:href="@{/css/navbar.css}" />
+    <link rel="stylesheet" th:href="@{/css/footer.css}" />
+    <link rel="stylesheet" th:href="@{/css/chart.css}" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
+</head>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<body>
+
+<header th:insert="~{fragments/header :: header}">
+</header>
+
+
+<div class="dashboard-container" style="margin-top:5em;" >
+
+    <header class="header">
+        <h1>Analytics Platform</h1>
+        <p><span th:text="${chart.getType()}"></span> visualization system</p>
+    </header>
+
+    <!-- Above Charts: Two Functional Interactive Buttons -->
+    <div class="action-controls">
+        <button class="btn-action" id="btnRefresh">
+            <a th:href="@{/admin/chat-chart}"> 🔄 Chat Rating<br> Chart </a>
+        </button>
+        <button class="btn-action" id="btnToggleTheme">
+            <a th:href="@{/admin/token-chart}">✨ Token Usage<br>Chart</a>
+        </button>
+    </div>
+
+    <!-- Charts Segment: Two Different Visual Reps -->
+    <div class="charts-grid">
+        <div class="chart-card">
+            <h3>Line Chart</h3>
+            <div class="chart-wrapper">
+                <canvas th:data-java-data="${chart}" id="lineChart"></canvas>
+            </div>
+        </div>
+        <div class="chart-card">
+            <h3>Bar Chart</h3>
+            <div class="chart-wrapper">
+                <canvas id="barChart"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <!-- Below Charts: Date Range Input Form -->
+    <form class="filter-form" id="dateFilterForm" th:action="${chart.type == 'Chat Rating Chart'} ? @{/admin/chat-chart/search} : @{/admin/token-chart/search}" th:object="${chartDate}" th:method="GET">
+        <div class="form-grid">
+            <div class="form-group">
+                <label for="dateFrom">Date From</label>
+                <input type="date" id="dateFrom" th:field="*{startingDate}" required>
+            </div>
+            <div class="form-group">
+                <label for="dateTo">Date To</label>
+                <input type="date" id="dateTo" th:field="*{endingDate}" required>
+            </div>
+            <button type="submit" class="btn-submit">Apply</button>
+        </div>
+    </form>
+</div>
+
+<!-- Footer Wrapper -->
+<div th:insert="~{fragments/footer :: footer}">
+</div>
+
+<script>
+
+    const ctx = document.getElementById('lineChart');
+    const ctx1 = document.getElementById('barChart');
+    const javaData = JSON.parse(ctx.dataset.javaData);
+    const lineDataset = lineDatasetFunction();
+    const barDataset = barDatasetFunction();
+
+    const chart = new Chart(ctx, lineDataset);
+    const chart1 = new Chart(ctx1, barDataset);
+
+    function barDatasetFunction()
+    {
+        return {
+            type: 'bar',
+            data: {
+                labels: javaData.labels,
+                datasets: [{
+                    label: '',
+                    data: javaData.data,
+                    backgroundColor: javaData.backgroundColors,
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        };
+    }
+
+    function lineDatasetFunction()
+    {
+        return {
+            type: 'line',
+            data: {
+                labels: javaData.labels,
+                datasets: [{
+                    label: '',
+                    data: javaData.data,
+                    backgroundColor: javaData.backgroundColors,
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        };
+    }
+</script>
+</body>
+</html>

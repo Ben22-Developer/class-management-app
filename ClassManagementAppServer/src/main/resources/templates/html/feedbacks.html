@@ -1,0 +1,91 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title th:text="#{app.title}"></title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" th:href="@{/css/global.css}" />
+    <link rel="stylesheet" th:href="@{/css/feedbacks.css}" />
+    <link rel="stylesheet" th:href="@{/css/navbar.css}" />
+    <link rel="stylesheet" th:href="@{/css/footer.css}" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
+</head>
+
+<body>
+
+    <header th:insert="~{fragments/header :: header}">
+    </header>
+
+    <div class="container">
+        <header>
+            <h1>User Feedback Dashboard</h1>
+        </header>
+
+        <div class="feedback-list">
+            <div class="feedback-card" th:each="feedback : ${feedbacks}">
+                <div class="feedback-content">
+                    <p class="feedback-text" th:text="${feedback.message}"></p>
+                    <p><strong>Username:</strong><span class="feedback-author" th:text="${feedback.username}"></span></p>
+                </div>
+                <form th:action="@{/admin/feedback/mvc/{id}(id=${feedback.id})}" th:method="DELETE">
+                    <button type="submit" class="delete-btn">Delete</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer Wrapper -->
+    <div th:insert="~{fragments/footer :: footer}">
+    </div>
+
+<script>
+
+    const menuBtn = document.querySelector(".menu-button");
+    const navMenu = document.querySelector("nav ul");
+
+    const table = document.getElementById("chats-table");
+    const input = document.getElementById("toDeleteChatRatingID")
+
+    function onChange(index) {
+
+        const uiChatRating = JSON.parse(table.dataset.chatRating);
+
+        const chatRating = uiChatRating.chatRatingList[index];
+        const id = chatRating.id;
+
+        if (uiChatRating.toDeleteChatRatingID.includes(id)) {
+            const index = uiChatRating.toDeleteChatRatingID.indexOf(id);
+            uiChatRating.toDeleteChatRatingID.splice(index, 1);
+        }
+        else {
+            uiChatRating.toDeleteChatRatingID.push(id);
+        }
+
+        input.value = uiChatRating.toDeleteChatRatingID;
+
+        table.dataset.chatRating = JSON.stringify(uiChatRating);
+    }
+
+    menuBtn.addEventListener("click",()=>{
+        navMenu.classList.toggle("show");
+        myFunction(menuBtn);
+    });
+
+    document.querySelectorAll("nav ul li a").forEach(link=>{
+
+        link.addEventListener("click",()=>{
+
+            navMenu.classList.remove("show");
+            menuBtn.innerHTML='<i class="fas fa-bars"></i>';
+
+        });
+
+    });
+
+    function myFunction(x) {
+        x.classList.toggle("change");
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,115 @@
+
+body {
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /*justify-content: center;*/
+    height: 100vh;
+}
+
+.page-title {
+    color: #1e293b;
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    text-align: center;
+    font-weight: 700;
+}
+
+.card {
+    background-color: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(128, 128, 128, 0.25);
+    width: 100%;
+    max-width: 450px;
+    padding: 2.5rem;
+    text-align: center;
+    border: 1px solid rgba(128, 128, 128, 0.15);
+}
+
+.card-title {
+    color: #0f172a;
+    font-size: 1.75rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    position: relative;
+    padding-bottom: 0.75rem;
+}
+
+.card-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 4px;
+    background-color: var(--green-color);
+    border-radius: 2px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    width: 100%;
+}
+
+label {
+    color: #475569;
+    font-size: 0.95rem;
+    font-weight: 600;
+}
+
+input[type="email"] {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+    border: 2px solid rgba(128, 128, 128, 0.25);
+    border-radius: 8px;
+    outline: none;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    color: #334155;
+}
+
+input[type="email"]:focus {
+    border-color:var(--green-color);
+    box-shadow:0 0 0 4px var(--green-opacity-color);
+}
+
+.btn-update {
+    background-color: var(--green-color);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 0.75rem 2rem;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.btn-update:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px var(--green-opacity-color);
+}
+
+.btn-update:active {
+    transform: translateY(0);
+}
+
+@media (max-width: 480px) {
+    .page-title {
+        font-size: 2rem;
+    }
+    .card {
+        padding: 1.75rem;
+    }
+}

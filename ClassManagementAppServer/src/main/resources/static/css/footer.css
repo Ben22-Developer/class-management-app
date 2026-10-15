@@ -1,0 +1,70 @@
+
+    /*=========================
+    FOOTER
+    ==========================*/
+
+    footer{
+
+        margin-top:80px;
+        background:linear-gradient(120deg,#0f172a,#1e293b);
+        padding:55px 10%;
+        color:white;
+
+    }
+
+    .footer-container{
+
+        display:flex;
+        justify-content:space-between;
+        flex-wrap:wrap;
+        gap:30px;
+
+    }
+
+    .footer-title{
+
+        font-size:28px;
+        font-weight:700;
+        margin-bottom:20px;
+
+    }
+
+    .socials{
+
+        display:flex;
+        gap:18px;
+
+    }
+
+    .socials a{
+
+        width:48px;
+        height:48px;
+        background:rgba(255,255,255,.1);
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        border-radius:50%;
+        color:white;
+        font-size:20px;
+        transition:.3s;
+
+    }
+
+    .socials a:hover{
+
+        background:var(--green-color);
+        transform:translateY(-5px);
+
+    }
+
+.copy{
+
+    margin-top:45px;
+    text-align:center;
+    color:#aaa;
+    font-size:15px;
+    border-top:1px solid rgba(255,255,255,.15);
+    padding-top:25px;
+
+}

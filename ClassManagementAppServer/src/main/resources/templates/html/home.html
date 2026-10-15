@@ -1,0 +1,148 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title th:text="#{app.title}"></title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" th:href="@{/css/global.css}" />
+    <link rel="stylesheet" th:href="@{/css/home.css}" />
+    <link rel="stylesheet" th:href="@{/css/navbar.css}" />
+    <link rel="stylesheet" th:href="@{/css/footer.css}" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
+
+</head>
+<body>
+
+    <header id="header" th:insert="~{fragments/header :: header}">
+    </header>
+
+    <section class="hero" id="hero">
+
+        <div class="hero-content">
+
+            <h1 style="font-size: 2.5em;">
+                Welcome to <span>LDK School Management App Admin Portal</span>
+            </h1>
+
+            <p th:text="${adminWelcomeMessage}"></p>
+
+            <div class="buttons">
+
+                <a href="https://lyceedekigali.ac.rw/" class="btn primary">
+                    Explore School
+                </a>
+
+                <a href="https://lyceedekigali.ac.rw/academics.html" class="btn secondary">
+                    Take a Tour
+                </a>
+            </div>
+        </div>
+
+    </section>
+
+    <section class="cards">
+
+        <div class="card">
+
+            <a th:href="@{/admin/users/username_id/mvc}">
+                <img th:src="@{/images/users.png}">
+            </a>
+
+            <div class="card-content">
+
+                <h3>Users</h3>
+
+                <p>
+                    Explore System Users
+                </p>
+
+            </div>
+
+        </div>
+
+        <div class="card">
+
+            <a th:href="@{/admin/chat-rating/mvc}">
+                <img th:src="@{/images/User_AIChat.jpg}">
+            </a>
+
+            <div class="card-content">
+
+                <h3>Users & AI Chats</h3>
+
+                <p>
+                    Explore Users and Chatbot Chats
+                </p>
+
+            </div>
+
+        </div>
+
+        </div>
+
+        <div class="card">
+
+            <a th:href="@{/admin/token-chart}">
+                <img th:src="@{/images/Statistics.jpg}"/>
+            </a>
+
+            <div class="card-content">
+
+                <h3>Statistics</h3>
+
+                <p>
+                    Explore Chatbot Statistics
+                </p>
+            </div>
+
+        </div>
+
+        <div class="card">
+
+            <a th:href="@{/admin/feedback/mvc}">
+                <img th:src="@{/images/feedback.png}"/>
+            </a>
+
+            <div class="card-content">
+
+                <h3>Users Feedback</h3>
+
+                <p>
+                    Explore User Feedback
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+    <footer th:insert="~{fragments/footer :: footer}">
+    </footer>
+
+<script>
+
+    const menuBtn = document.querySelector(".menu-button");
+    const navMenu = document.querySelector("nav ul");
+
+    menuBtn.addEventListener("click",()=>{
+        navMenu.classList.toggle("show");
+        myFunction(menuBtn);
+    });
+
+    document.querySelectorAll("nav ul li a").forEach(link=>{
+
+        link.addEventListener("click",()=>{
+
+            navMenu.classList.remove("show");
+            menuBtn.innerHTML='<i class="fas fa-bars"></i>';
+
+        });
+
+    });
+
+    function myFunction(x) {
+        x.classList.toggle("change");
+    }
+</script>
+</body>
+</html>

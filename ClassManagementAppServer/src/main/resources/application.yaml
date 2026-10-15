@@ -1,0 +1,75 @@
+spring:
+  application:
+    name: classManagementAppServer
+    api-key-timeout: 20 # used in API Key Contract Impl
+
+    zone-offset: # used in UserSchedulePostServiceContractImpl
+      rwanda-time: 2
+
+  mvc:
+    hiddenmethod:
+        filter:
+          enabled: true
+
+  ai:
+    google:
+      genai:
+        chat:
+          thinking-budget: 0
+          model: gemini-3.1-flash-lite
+          max-output-tokens: 1000
+    chat:
+      memory:
+        repository:
+          jdbc:
+            initialize-schema: ALWAYS
+    token:
+      token-batching-strategy:
+        max-input-token-count: 2048
+        reserve-percentage: 0.4 # use in AI config
+      token-text-splitter: #use in AI config
+        chunk-size: 400
+        min-chunk-size-chars: 50
+      max-token-amount: 15000 # used in TokenAmountService, this for free
+
+
+
+
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: ${spring.application.admin.gmail}
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+
+  datasource1: # used Database Config
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/classManagementAppServer
+    username: teacherUser
+    password: 12345
+  datasource2:
+    url: jdbc:mariadb://localhost:3307/class_management_app_spring_ai_db
+    username: teacherUser
+    password: 12345
+
+  security:
+    user:
+      password:
+        strength: 10
+      role:
+        admin: ROLE_ADMIN # used at ReadUserRepositoryImpl
+    developer:
+      secret_key: 2002 # used at DeveloperController
+
+server:
+  port: 8081
+
+logging:
+  level:
+    org:
+      springframework:
+        security: DEBUG

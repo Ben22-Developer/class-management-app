@@ -1,0 +1,1 @@
+rate out of 10 the chat bot answer based on the user prompt -> user prompt {userMessage} and chat bot Message {chatBotMessage}

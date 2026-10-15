@@ -1,0 +1,26 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+    <nav th:fragment="header">
+
+        <div class="logo">
+            LDK School Management App <span>Admin Portal</span>
+        </div>
+
+        <ul>
+            <li th:class="${current_page == 'Home' ? 'current_page_item' : '' }"><a th:href="@{/}">Home</a></li>
+            <li th:class="${current_page == 'Users' ? 'current_page_item' : '' }"><a th:href="@{/admin/users/username_id/mvc}">Users</a></li>
+            <li th:class="${current_page == 'Feedback' ? 'current_page_item' : '' }"><a th:href="@{/admin/feedback/mvc}">Feedback</a></li>
+            <li th:class="${current_page == 'Chart' ? 'current_page_item' : '' }"><a th:href="@{/admin/token-chart}">Statistic Charts</a></li>
+            <li th:class="${current_page == 'Chat Rating' ? 'current_page_item' : '' }"><a th:href="@{/admin/chat-rating/mvc}">Chats</a></li>
+            <li><a th:href="@{/logout}">Logout</a></li>
+        </ul>
+
+        <div class="menu-button">
+            <div class="bar1"></div>
+            <div class="bar2"></div>
+            <div class="bar3"></div>
+        </div>
+
+    </nav>
+</html>

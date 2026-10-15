@@ -1,0 +1,233 @@
+<!DOCTYPE HTML>
+<!--
+	ZeroFour by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Right Sidebar - ZeroFour by HTML5 UP</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<link rel="stylesheet" href="assets/css/custom.css" />
+	</head>
+	<body class="right-sidebar is-preload">
+		<div id="page-wrapper">
+
+			<!-- Header -->
+				<header id="header">
+					<div class="inner">
+
+						<!-- Logo -->
+							<h1><a href="index.html" id="logo">ZeroFour</a></h1>
+
+						<!-- Nav -->
+					<!-- Nav -->
+						<nav id="nav">
+							<ul>
+								<li><a href="index.html">Home</a></li>
+								<li><a href="left-sidebar.html">Chart</a></li>
+								<li class="current_page_item"><a href="right-sidebar.html">Users</a></li>
+								<li><a href="no-sidebar.html">Feedback</a></li>
+							</ul>
+						</nav>
+
+					</div>
+				</header>
+
+			<!-- Main Wrapper -->
+				<div id="main-wrapper">
+					<div class="wrapper style1">
+						<div class="inner">
+
+							<h1 class="statistics-header redish">Users</h1>
+
+							<div class="table-container">
+
+								<div class="table-search-container">
+
+									<form class="form-div" th:action="@{/admin/users/username_id/search/mvc}" th:method="GET">
+										<div class="input-field">
+											<input type="text" name="search" required/>
+											<label style="font-weight: 100;">Search</label>
+										</div>
+										<button class="button-84 search" type="submit">Search</button>
+									</form>
+								</div>
+
+								<div class="table-search-container">
+									
+									<div class="input-field">
+										<input type="password" name="password" required>
+										<label>Search</label>
+									</div>
+
+									<button class="button-84 search">Search</button>
+								</div>
+
+								<table class="table-zebra">
+									<caption>List of Active Users as of Today</caption>
+									<thead>
+										<tr>
+											<th scope="col">No</th>
+											<th scope="col">Select</th>
+											<th scope="col">User Message</th>
+											<th scope="col">Bot Message</th>
+											<th scope="col">Rate</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td class="table-data">USR-001</td>
+											<td class="table-data">
+												<input type="checkbox" id="item1" name="items" value="1" onchange="onChange()"/>
+											</td>
+											<td class="table-data">Arthur Holla fam I liked this project, but is there any limitationt</td>
+											<td class="table-data">
+												Limitations include inadequate financial resources, time constraints, user resistance to new technology, restricted access to certain information, and technical implementation challenges. Additionally, online learning and external communication services are outside the system's scope.
+											</td>
+											<td class="table-data">
+												6.5
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+
+							<form class="a-form" style="border: none; box-shadow: none; background-color: transparent; margin-top: -25px;">
+								<input type="submit" value="Delete Selected"/>
+							</form>
+
+						</div>
+					</div>
+				</div>	
+
+			<!-- Footer Wrapper -->
+				<div id="footer-wrapper">
+					<footer id="footer" class="container">
+						<div class="row">
+							<div class="col-3 col-6-medium col-12-small">
+
+								<!-- Links -->
+									<section>
+										<h2>Filler Links</h2>
+										<ul class="divided">
+											<li><a href="#">Quam turpis feugiat dolor</a></li>
+											<li><a href="#">Amet ornare in hendrerit </a></li>
+											<li><a href="#">Semper mod quisturpis nisi</a></li>
+											<li><a href="#">Consequat etiam phasellus</a></li>
+											<li><a href="#">Amet turpis, feugiat et</a></li>
+											<li><a href="#">Ornare hendrerit lectus</a></li>
+											<li><a href="#">Semper mod quis et dolore</a></li>
+											<li><a href="#">Amet ornare in hendrerit</a></li>
+											<li><a href="#">Consequat lorem phasellus</a></li>
+											<li><a href="#">Amet turpis, feugiat amet</a></li>
+											<li><a href="#">Semper mod quisturpis</a></li>
+										</ul>
+									</section>
+
+							</div>
+							<div class="col-3 col-6-medium col-12-small">
+
+								<!-- Links -->
+									<section>
+										<h2>More Filler</h2>
+										<ul class="divided">
+											<li><a href="#">Quam turpis feugiat dolor</a></li>
+											<li><a href="#">Amet ornare in in lectus</a></li>
+											<li><a href="#">Semper mod sed tempus nisi</a></li>
+											<li><a href="#">Consequat etiam phasellus</a></li>
+										</ul>
+									</section>
+
+								<!-- Links -->
+									<section>
+										<h2>Even More Filler</h2>
+										<ul class="divided">
+											<li><a href="#">Quam turpis feugiat dolor</a></li>
+											<li><a href="#">Amet ornare hendrerit lectus</a></li>
+											<li><a href="#">Semper quisturpis nisi</a></li>
+											<li><a href="#">Consequat lorem phasellus</a></li>
+										</ul>
+									</section>
+
+							</div>
+							<div class="col-6 col-12-medium imp-medium">
+
+								<!-- About -->
+									<section>
+										<h2><strong>ZeroFour</strong> by HTML5 UP</h2>
+										<p>Hi! This is <strong>ZeroFour</strong>, a free, fully responsive HTML5 site
+										template by <a href="http://twitter.com/ajlkn">AJ</a> for <a href="http://html5up.net/">HTML5 UP</a>.
+										It's <a href="http://html5up.net/license/">Creative Commons Attribution</a>
+										licensed so use it for any personal or commercial project (just credit us
+										for the design!).</p>
+										<a href="#" class="button alt icon solid fa-arrow-circle-right">Learn More</a>
+									</section>
+
+								<!-- Contact -->
+									<section>
+										<h2>Get in touch</h2>
+										<div>
+											<div class="row">
+												<div class="col-6 col-12-small">
+													<dl class="contact">
+														<dt>Twitter</dt>
+														<dd><a href="#">@untitled-corp</a></dd>
+														<dt>Facebook</dt>
+														<dd><a href="#">facebook.com/untitled</a></dd>
+														<dt>WWW</dt>
+														<dd><a href="#">untitled.tld</a></dd>
+														<dt>Email</dt>
+														<dd><a href="#">user@untitled.tld</a></dd>
+													</dl>
+												</div>
+												<div class="col-6 col-12-small">
+													<dl class="contact">
+														<dt>Address</dt>
+														<dd>
+															1234 Fictional Rd<br />
+															Nashville, TN 00000-0000<br />
+															USA
+														</dd>
+														<dt>Phone</dt>
+														<dd>(000) 000-0000</dd>
+													</dl>
+												</div>
+											</div>
+										</div>
+									</section>
+
+							</div>
+							<div class="col-12">
+								<div id="copyright">
+									<ul class="menu">
+										<li>&copy; Untitled. All rights reserved</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</footer>
+				</div>
+
+		</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.dropotron.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+			<script>
+				function onChange() {
+
+					console.log("clicked")
+				}
+			</script>
+			
+
+	</body>
+</html>

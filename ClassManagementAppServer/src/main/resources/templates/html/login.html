@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title th:text="#{app.title}"></title>
+
+    <link rel="stylesheet" th:href="@{/css/login.css}">
+
+</head>
+<body>
+
+<div class="bg-shape shape1"></div>
+<div class="bg-shape shape2"></div>
+<div class="bg-shape shape3"></div>
+
+<div class="container">
+
+    <div class="left">
+
+        <div class="logo">
+            🏫 Lycee De Kigali School Management Admin Portal
+        </div>
+
+        <div class="content" >
+
+            <p style="margin-top: 2rem;">
+                Monitor site activity.Active users.System health in real time.In one click.
+            </p>
+
+            <div class="slider-container">
+                <div class="slider-wrapper">
+                    <div class="slide">
+                        <img  th:src="@{/images/ldk.jpg}" alt="Slide 1">
+                    </div>
+                    <div class="slide">
+                        <img  th:src="@{/images/ldk1.jpg}" alt="Slide 2">
+                    </div>
+                    <div class="slide">
+                        <img  th:src="@{/images/ldk2.jpg}" alt="Slide 3">
+                    </div>
+                    <!-- The first slide is duplicated at the end to create a seamless infinite loop -->
+                    <div class="slide">
+                        <img  th:src="@{/images/ldk3.jpg}" alt="Slide 4">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="right">
+
+        <form class="login-card" action="#" method="post" th:action="@{/login}">
+
+            <h3 th:if="${param.error}" class="invalid-credentials">Invalid username or password!</h3>
+
+            <h3 th:if="${param.logout}" class="logout-success">You are logged out successfully</h3>
+
+
+            <h2>Login</h2>
+
+            <p>Sign in to continue your journey.</p>
+
+
+            <div class="input-box">
+
+                <input type="text" name="username" required>
+
+                <label>Email Address</label>
+
+            </div>
+
+
+            <div class="input-box">
+
+                <input id="password" type="password" name="password" required>
+
+                <label>Password</label>
+
+            </div>
+
+
+            <button type="submit">
+
+                Login
+
+            </button>
+
+        </form>
+
+        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+
+    </div>
+
+</div>
+
+</body>
+</html>

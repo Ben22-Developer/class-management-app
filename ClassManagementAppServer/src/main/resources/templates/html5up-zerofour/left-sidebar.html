@@ -1,0 +1,221 @@
+<!DOCTYPE HTML>
+<!--
+	ZeroFour by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Left Sidebar - ZeroFour by HTML5 UP</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<link rel="stylesheet" href="assets/css/custom.css" />
+	</head>
+
+	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+	
+	<body class="left-sidebar is-preload">
+		<div id="page-wrapper">
+
+			<header id="header">
+				<div class="inner">
+
+					<!-- Logo -->
+						<h1><a href="index.html" id="logo"></a></h1>
+
+					<!-- Nav -->
+						<nav id="nav">
+							<ul>
+								<li><a href="index.html">Home</a></li>
+								<li class="current_page_item"><a href="left-sidebar.html">Chart</a></li>
+								<li><a href="right-sidebar.html">Users</a></li>
+								<li><a href="no-sidebar.html">Feedback</a></li>
+							</ul>
+						</nav>
+
+				</div>
+			</header>
+
+
+			<!-- Main Wrapper -->
+				<div id="main-wrapper">
+					<div class="wrapper style1">
+						<div class="inner">
+							<div class="chart-button-controllers-container">
+								<button class="button-84" role="button">Rating View<br>Chart</button>
+								<button class="button-84" role="button">Token Usage<br>Chart</button>
+							</div>
+
+							<div class="chart-container">
+								<h1 class="statistics-header redish">Token Usage Chart</h1>
+  								<canvas id="myChart"></canvas>
+							</div>
+
+							<div class="chart-type-container">
+								<select id="my-selector" class="my-selector" onchange="chartChange()">
+									<option>Chart</option>
+									<option value="bar">Bar Chart</option>
+									<option value="line">Line Chart</option>
+									<option value="doughnut">Doughnut</option>
+									<option value="pie">Pie</option>
+									
+								</select>
+								<p class="selected-chart-paragraph" id="selected-chart-paragraph">Selected Chart <span id="selected-chart-span">Bar Chart</span></p>
+							</div>
+
+
+							<form class="next-data-set-form" action="">
+								<h4 class="redish">Select your next data set time frame</h4>
+								
+								<div class="form-div">
+									<p>From: </p>
+									<input type="date" required/>
+								</div>
+
+								<div class="form-div"s>
+									<p>To: </p>
+									<input type="date" required/>
+								</div>
+								
+								<div class="form-div">
+									<input type="submit" name="submit" class="dataset-form-submit-button">
+								</div>
+
+							</form>
+						</div>
+					</div>
+				</div>		
+
+
+			<!-- Footer Wrapper -->
+				<div id="footer-wrapper">
+					<footer id="footer" class="container">
+						<div class="row">
+							<div class="col-12">
+								<div id="copyright">
+									<ul class="menu">
+										<li>&copy; Untitled. All rights reserved</li><li>Design: <a href="http://html5up.net">School Management App</a></li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</footer>
+				</div>
+			</div>	
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.dropotron.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+<!-- 
+			<script>
+				const ctx = document.getElementById('myChart');
+
+				const dataset = {
+						type: 'bar',
+						data: {
+						labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+						datasets: [{
+							label: '# of Votes',
+							data: [12, 19, 3, 5, 2, 3],
+							backgroundColor: [
+								'rgba(255, 99, 132, 0.2)',
+								'rgba(255, 159, 64, 0.2)',
+								'rgba(255, 205, 86, 0.2)',
+								'rgba(75, 192, 192, 0.2)',
+								'rgba(54, 162, 235, 0.2)',
+								'rgba(153, 102, 255, 0.2)'
+							],
+							borderWidth: 1
+						}]
+						},
+						options: {
+						scales: {
+							y: {
+							beginAtZero: true
+							}
+						}
+						}
+					};
+
+				let chart = new Chart(ctx, dataset);
+
+				function chartChange () {
+
+					const selector = document.getElementById("my-selector");
+					const selectedChartSpan = document.getElementById("selected-chart-span");
+
+					if (selector.value === "Chart")
+						return;
+
+					dataset.type = selector.value;
+
+					chart.update();
+					// chart = new Chart(ctx, dataset);
+
+					selectedChartSpan.textContent=dataset.type;
+
+					console.log(selector.value);
+					console.log(chart);
+				}
+
+			</script> -->
+
+
+    <script> 
+
+        const ctx = document.getElementById('myChart');
+        const javaData = JSON.parse(ctx.javaData.chart);
+        const dataset = datasetFunction();
+        const chart = new Chart(ctx, dataset);
+
+        console.log(javaData);
+        console.log(dataset);
+        console.log(chart);
+
+        function datasetFunction()
+        {
+            return {
+                type: 'bar',
+                data: {
+                    labels: javaData.labels,
+                    datasets: [{
+                        label: 'Tokens to Date',
+                        data: javaData.tokens,
+                        backgroundColor: javaData.backgroundColors,
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            };
+        }
+
+        function chartChange () {
+
+            const selector = document.getElementById("my-selector");
+            const selectedChartSpan = document.getElementById("selected-chart-span");
+
+            if (selector.value === "Chart")
+                return;
+
+            dataset.type = selector.value + " chart";
+
+            chart.update();
+
+            selectedChartSpan.textContent=dataset.type;
+
+        }
+
+    </script>
+
+	</body>
+</html>

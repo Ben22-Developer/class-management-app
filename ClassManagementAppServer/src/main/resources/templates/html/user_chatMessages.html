@@ -1,0 +1,111 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title th:text="#{app.title}"></title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" th:href="@{/css/global.css}" />
+    <link rel="stylesheet" th:href="@{/css/users.css}" />
+    <link rel="stylesheet" th:href="@{/css/navbar.css}" />
+    <link rel="stylesheet" th:href="@{/css/footer.css}" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
+</head>
+
+<body>
+
+    <header th:insert="~{fragments/header :: header}">
+    </header>
+
+    <section class="users-section">
+
+        <h1 id="users-title">System Users and Bot Chats</h1>
+
+        <div class="table-wrapper">
+
+            <table id="chats-table" th:data-chat-rating="${uiChatRating}">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Select</th>
+                        <th>User Message</th>
+                        <th>Bot Message</th>
+                        <th>Chat Date Time</th>
+                        <th>Rate</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="chatRating, itemStat : ${chatRatingList}">
+                        <td th:text="${itemStat.count}"></td>
+                        <td>
+                            <input type="checkbox" name="items" value="false" th:onchange="'onChange(' + ${itemStat.index} + ')'"/>
+                        </td>
+                        <td th:text="${chatRating.userMessage}"></td>
+                        <td th:text="${chatRating.botMessage}"></td>
+                        <td th:text="${chatRating.localDateTime}"></td>
+                        <td th:text="${chatRating.rate}"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <form style="display: flex; justify-content: center;" th:object="${uiChatRating}" th:method="delete" th:action="@{/admin/chat-rating/mvc}">
+        <input id="toDeleteChatRatingID" type="hidden" th:field="*{toDeleteChatRatingID}"/>
+        <input class="filter-btn" type="submit" value="Delete Selected"/>
+    </form>
+
+    <!-- Footer Wrapper -->
+    <div th:insert="~{fragments/footer :: footer}">
+    </div>
+
+    <script>
+
+        const menuBtn = document.querySelector(".menu-button");
+        const navMenu = document.querySelector("nav ul");
+
+        const table = document.getElementById("chats-table");
+        const input = document.getElementById("toDeleteChatRatingID")
+
+        function onChange(index) {
+
+            const uiChatRating = JSON.parse(table.dataset.chatRating);
+
+            const chatRating = uiChatRating.chatRatingList[index];
+            const id = chatRating.id;
+
+            if (uiChatRating.toDeleteChatRatingID.includes(id)) {
+                const index = uiChatRating.toDeleteChatRatingID.indexOf(id);
+                uiChatRating.toDeleteChatRatingID.splice(index, 1);
+            }
+            else {
+                uiChatRating.toDeleteChatRatingID.push(id);
+            }
+
+            input.value = uiChatRating.toDeleteChatRatingID;
+
+            table.dataset.chatRating = JSON.stringify(uiChatRating);
+        }
+
+        menuBtn.addEventListener("click",()=>{
+            navMenu.classList.toggle("show");
+            myFunction(menuBtn);
+        });
+
+        document.querySelectorAll("nav ul li a").forEach(link=>{
+
+            link.addEventListener("click",()=>{
+
+                navMenu.classList.remove("show");
+                menuBtn.innerHTML='<i class="fas fa-bars"></i>';
+
+            });
+
+        });
+
+        function myFunction(x) {
+            x.classList.toggle("change");
+        }
+    </script>
+
+</body>
+</html>

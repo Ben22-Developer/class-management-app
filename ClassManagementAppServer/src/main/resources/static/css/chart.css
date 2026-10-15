@@ -1,0 +1,216 @@
+body {
+    background:#fff;
+    min-height: 100vh;
+    padding: 2rem 0 0 0;
+}
+
+.dashboard-container {
+    margin: auto;
+    width: 100%;
+    max-width: 1000px;
+    background: rgba(255,255,255,0.5);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 183, 3, 0.15);
+    border-radius: 24px;
+    padding: 2.5rem;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 50px rgba(255, 255, 255, 0.15);
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+    color:var(green-color);
+}
+
+.header h1 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    background: var(--green-color);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 0.5rem;
+}
+
+.header p {
+    color: #94a3b8;
+    font-size: 1rem;
+}
+
+/* Top Action Buttons */
+.action-controls {
+    display: flex;
+    justify-content: center;
+    gap: 1.25rem;
+    margin-bottom: 2.5rem;
+}
+
+.btn-action {
+    background: rgb(0,0,0);
+    border: 1px solid var(--green-color);
+    padding: 0.85rem 1.75rem;
+    font-size: 0.95rem;
+    font-weight: 600;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+
+    a {
+        color: #fff;
+    }
+}
+
+.btn-action:hover {
+    background: var(--green-color);
+    color: #fff;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px var(--green-opacity-color);
+}
+
+.btn-action:active {
+    transform: translateY(-1px);
+}
+
+/* Charts Layout Grid */
+.charts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.chart-card {
+    border: 1px solid var(--green-color);
+    border-radius: 18px;
+    padding: 1.5rem;
+    box-shadow: inset 0 2px 4px var(--green-opacity-color);
+    transition: border-color 0.3s ease;
+    position: relative;
+    min-height: 320px;
+    background:rgba(0,0,0);
+}
+
+.chart-card h3 {
+    font-size: 1.1rem;
+    color: #cbd5e1;
+    margin-bottom: 1.25rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.chart-card h3::before {
+    content: '';
+    display: inline-block;
+    width: 4px;
+    height: 16px;
+    background: var(--green-color);
+    border-radius: 2px;
+}
+
+.chart-wrapper {
+    position: relative;
+    width: 100%;
+    height: 240px;
+}
+
+/* Bottom Date Form */
+.filter-form {
+    background: rgb(0,0,0);
+    border: 1px solid rgba(128, 128, 128, 0.25);
+    border-radius: 18px;
+    padding: 2rem;
+}
+
+.form-grid {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    gap: 1.5rem;
+}
+
+.form-group {
+    flex: 1;
+    min-width: 200px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.form-group label {
+    color: #94a3b8;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.form-group input[type="date"] {
+    background: rgba(128, 128, 128, 0.25);
+    border: 2px solid rgba(128, 128, 128, 0.25);
+    color: #ffffff;
+    padding: 0.85rem 1rem;
+    font-size: 1rem;
+    border-radius: 12px;
+    outline: none;
+    transition: all 0.3s ease;
+    width: 100%;
+}
+
+.form-group input[type="date"]:focus {
+    border-color: var(--green-color);
+    box-shadow: 0 0 0 4px var(--green-opacity-color);
+    background: #0f172a;
+}
+
+/* Custom style indicator for dark theme browser date picker support */
+::-webkit-calendar-picker-indicator {
+    filter: invert(0.8) sepia(1) saturate(5) hue-rotate(15deg);
+    cursor: pointer;
+}
+
+.btn-submit {
+    background: var(--green-color);
+    color: #fff;
+    border: none;
+    padding: 0.95rem 2.5rem;
+    font-size: 1rem;
+    font-weight: 700;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    min-width: 160px;
+    box-shadow: 0 4px 12px rgba(255, 183, 3, 0.2);
+    height: 52px;
+}
+
+.btn-submit:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px var(--green-opacity-color);
+}
+
+.btn-submit:active {
+    transform: translateY(0);
+}
+
+/* Responsive Layout Tweaks */
+@media (max-width: 768px) {
+    .dashboard-container {
+        padding: 1.5rem;
+    }
+    .charts-grid {
+        grid-template-columns: 1fr;
+    }
+    .form-grid {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .btn-submit {
+        width: 100%;
+    }
+}
