@@ -26,7 +26,7 @@ In order to start the client here are the steps to make sure it runs smoothly:
 
 3. Navigate to -> SQL Stuffs/SQL Scripts/
 
-4. Run these 2 SQL Scripts in your preffered mysql tool, as these scripts are essential in database initialization. ["Create Table.sql" and "User Teacher Permissions.sql"]
+4. Run these 2 SQL Scripts in your preffered mysql tool, as these scripts are essential in database initialization. ["Create Table.sql","User Teacher Permissions.sql" and "classmanagementappclient_seed.sql"]
 
 5. You can start the project. (it's preffered but not mandatory to start the client project in netbeans IDE, beacuse of UI forms or pallete).
 
@@ -68,7 +68,7 @@ In order to start the server here are the steps to make sure it runs smoothly:
 
 3. Navigate to -> sql/
 
-4. Run these 2 SQL Scripts in your preffered mysql tool, as these scripts are essential in database initialization. ["create.sql" and "user permission class management app server.sql"]
+4. Run these 3 SQL Scripts in your preffered mysql tool, as these scripts are essential in database initialization. ["create.sql", "user permission class management app server.sql" and "classmanagementserver_seed.sql"]
 
 5. Create a ".env" file, in the root folder.
 

@@ -122,7 +122,7 @@ public class ExcelWriter1 extends ExcelManipulators {
     private static File fileValidate (String excelName, boolean createDirectory, String...customDirectory) {
         
         String userName = System.getProperty("user.name");
-        String path = customDirectory.length == 0 ? "C:\\Users\\"+userName+"\\Class Management Files\\" : "C:\\Users\\"+userName+"\\Class Management Files\\" + customDirectory[0];
+        String path = customDirectory.length == 0 ? "Excel Reports\\" : "Excel Reports\\" + customDirectory[0];
         File directory = create(path, createDirectory);
         return getFile(directory.getAbsolutePath() + "\\" + excelName);
     }
